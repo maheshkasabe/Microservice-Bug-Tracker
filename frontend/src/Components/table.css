@@ -1,0 +1,75 @@
+.main{
+    border-radius: 10px;
+    background-color: #424242;
+    margin: 20px;
+    padding: 20px;
+}
+
+.add-btn button{
+    display: flex;
+    width: 120px;
+    height: 40px;
+    align-items: center;
+    text-align: center;
+    background-color: aqua;
+    color: black;
+    font-size: medium;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.add-btn button:hover{
+    background-color: #00968840;
+}
+
+.table table{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 10px;
+    background-color: #424242;
+    color: white;
+}
+
+.table th{
+    font-size: medium;
+    color:white;
+    font-weight: 600;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.table tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0.1px solid gray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.table table tr#one{
+    background-color: #00968840;;
+}
+
+.table td{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-self: auto;
+    font-size: small;
+    color: white;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.table tr a{
+    text-decoration: none;
+    color: white;
+}
