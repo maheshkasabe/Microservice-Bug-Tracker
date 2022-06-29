@@ -26,7 +26,7 @@ const Table = () => {
                         <th>Bugs</th>
                         <th>Assign</th>
                         <th>Admin</th>
-                        <th>Added At</th>
+                        <th>Added On</th>
                         <th>Actions</th>
                     </tr>
 
