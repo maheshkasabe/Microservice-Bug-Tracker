@@ -1,0 +1,74 @@
+.signin{
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.main-div{
+    color: white;
+    font-size: x-large;
+    font-weight: 900;   
+}
+
+.main-div button{
+    height: 40px;
+    width: 200px;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-div{
+    height: 200px;
+    width: 350px;
+    font-size: large;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.form-div input{
+    width: 300px;
+    height: 35px;
+    margin: 10px;
+    font-size: medium;
+    font-weight: 900;
+}
+
+.form-div button{
+    width: 300px;
+    height: 40px;
+    font-size: medium;
+    color: white;
+    background-color: blue;
+    border-radius: 1px;
+    font-weight: 900;
+    border: none;
+    margin-top: 10px;
+}
+
+
+.main-div button:hover{
+    cursor: pointer;
+}
+.form-div button:hover{
+     cursor: pointer;
+}
+
+.form-div p{
+    text-align: center;
+    color: black;
+    font-size: small;
+}
+
+.form-div a{
+    color: black;
+}

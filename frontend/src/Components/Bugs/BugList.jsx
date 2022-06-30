@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./bugs.css"
-import Modal from './Modal/Modal';
+import Modal from '../Modal/Modal';
 
 const BugList = () => {
     const [state, Setstate] = useState(false);

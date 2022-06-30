@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Modal1 from './Modal/Modal1';
+import Modal1 from '../Modal/Modal1';
 import "./table.css"
 
 const Table = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./header.css"
-import logo from "../logo512.png"
+import logo from "../../logo512.png"
 
 const Header = () => {
   return (
@@ -13,7 +13,7 @@ const Header = () => {
 
         <div className='btns'>
             <p>Admin</p>
-            <button>LogIn</button>
+            <button>Logout</button>
         </div>
     </div>
   )
