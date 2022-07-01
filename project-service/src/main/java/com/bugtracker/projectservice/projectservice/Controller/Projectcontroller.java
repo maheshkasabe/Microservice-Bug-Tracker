@@ -1,14 +1,17 @@
 package com.bugtracker.projectservice.projectservice.Controller;
 
+import com.bugtracker.projectservice.projectservice.CustomMessage;
 import com.bugtracker.projectservice.projectservice.Entity.Project;
+import com.bugtracker.projectservice.projectservice.MQConfig;
 import com.bugtracker.projectservice.projectservice.Service.ProjectService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/project")
+@RequestMapping("/projects")
 public class Projectcontroller {
 
     @Autowired
@@ -38,6 +41,19 @@ public class Projectcontroller {
     @PutMapping("/{id}")
     public Project updateproject(@PathVariable("id") Long Id, @RequestBody Project project){
         return projectService.updateproject(Id, project);
+    }
+
+    @Autowired
+    private RabbitTemplate template;
+
+    @PostMapping("/publish")
+    public String publishMessage(@RequestBody CustomMessage message){
+        message.setName(message.getName());
+        message.setPriority(message.getPriority());
+        message.setStatus(message.getStatus());
+        template.convertAndSend(MQConfig.EXCHANGE,MQConfig.ROUTING_KEY,message);
+
+        return "Done..";
     }
 
 
