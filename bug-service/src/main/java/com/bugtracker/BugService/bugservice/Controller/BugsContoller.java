@@ -27,7 +27,7 @@ public class BugsContoller {
     @DeleteMapping("/{id}")
     public String deletebug(@PathVariable("id") Long id){
         bugService.deletebug(id);
-        return "Bug {id} delted successfully";
+        return "Bug deleted successfully";
     }
 
     @PutMapping("/{id}")
