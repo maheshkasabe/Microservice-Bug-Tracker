@@ -3,12 +3,10 @@ package com.bugtracker.userservice.userservice.Controller;
 import com.bugtracker.userservice.userservice.Entity.User;
 import com.bugtracker.userservice.userservice.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/users")
 public class Usercontroller {
 
     @Autowired
@@ -22,6 +20,6 @@ public class Usercontroller {
 
     @GetMapping("/login")
     public String login(){
-        return "logged in...";
+        return "user logged in...";
     }
 }

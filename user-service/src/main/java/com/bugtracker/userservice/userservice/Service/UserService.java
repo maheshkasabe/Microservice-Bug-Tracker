@@ -19,6 +19,7 @@ public class UserService {
         User user = new User();
         user.setUsername(userModel.getUsername());
         user.setPassword(passwordEncoder.encode(userModel.getPassword()));
+        user.setRole(userModel.getRole());
 
         repo.save(user);
         return user;
