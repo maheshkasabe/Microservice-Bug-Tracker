@@ -7,7 +7,7 @@ const Modal1 = ({Setbtnstate }) => {
             <div className='modal-bug'>
 
                 <div className='project'>
-                <p>Add a new Project </p> <button id='projectbtn' onClick={() => {Setbtnstate(false)}}>x</button>
+                <p>ADD A NEW PROJECT </p> <button id='projectbtn' onClick={() => {Setbtnstate(false)}}>x</button>
                 </div>
                 
                 <input type="text" placeholder='Project Name' />

@@ -1,35 +1,33 @@
 package com.bugtracker.projectservice.projectservice.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-import java.util.Date;
+import java.util.List;
 
-@Entity
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Project")
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
+
+@Document(collection = "project")
 public class Project {
 
+    @Transient
+    public static final String INDEX_NAME = "db_sequence";
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private String id;
 
     private String name;
 
     private String creator;
 
-    //users list
+    private List<String> members;
 
-    //bug list
-
-    @CreationTimestamp
-    @Column(name = "created_At", nullable = false, updatable = false)
-    private Date createdAt;
+    private List<Integer> buglist;
 
 }

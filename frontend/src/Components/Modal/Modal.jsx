@@ -7,7 +7,7 @@ const Modal = ({Setstate}) => {
         
         <div className='modal-bug'>
         <div className='project'>
-                <p>Add a new bug </p> <button onClick={() => {Setstate(false)}}>x</button>
+                <p>ADD A NEW BUG </p> <button onClick={() => {Setstate(false)}}>x</button>
                 </div>
         <input type="text" placeholder='Title' />
         <button>CREATE A NEW BUG </button>
