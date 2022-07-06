@@ -24,14 +24,19 @@ public class BugsContoller {
         return bugService.getbug();
     }
 
+    @GetMapping("/{id}")
+    public Bugs getbugbyid(@PathVariable("id") Long bugid){
+        return bugService.getbugbyid(bugid);
+    }
+
     @DeleteMapping("/{id}")
-    public String deletebug(@PathVariable("id") Long id){
-        bugService.deletebug(id);
+    public String deletebug(@PathVariable("id") Long bugid){
+        bugService.deletebug(bugid);
         return "Bug deleted successfully";
     }
 
     @PutMapping("/{id}")
-    public Bugs updatebug(@PathVariable("id") Long id, @RequestBody Bugs bugs){
-        return bugService.updatebug(id,bugs);
+    public Bugs updatebug(@PathVariable("id") Long bugid, @RequestBody Bugs bugs){
+        return bugService.updatebug(bugid,bugs);
     }
 }

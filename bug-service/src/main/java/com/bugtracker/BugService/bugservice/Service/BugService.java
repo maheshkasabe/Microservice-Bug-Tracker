@@ -21,13 +21,12 @@ public class BugService {
         return repo.findAll();
     }
 
-    public void deletebug(Long id) {
-        repo.deleteById(id);
+    public void deletebug(Long bugid) {
+        repo.deleteById(bugid);
     }
 
-    public Bugs updatebug(Long id, Bugs bugs) {
-        Bugs bg = repo.findById(id).get();
-
+    public Bugs updatebug(Long bugid, Bugs bugs) {
+        Bugs bg = repo.findById(bugid).get();
         bg.setName(bugs.getName());
         bg.setPriority(bugs.getPriority());
         bg.setStatus(bugs.getStatus());
@@ -35,4 +34,7 @@ public class BugService {
         return repo.save(bg);
     }
 
+    public Bugs getbugbyid(Long bugid) {
+        return repo.findById(bugid).get();
+    }
 }

@@ -13,7 +13,7 @@ public class Listner {
     private Repo repo;
 
     @RabbitListener(queues = MQConfig.QUEUE)
-    public void   listner(Bugs bugs){
+    public void listner(Bugs bugs){
         repo.save(bugs);
     }
 }

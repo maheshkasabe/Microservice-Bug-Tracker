@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal1 from '../Modal/Modal1';
 import "./table.css"
@@ -6,6 +7,14 @@ import "./table.css"
 const Table = () => {
     const navigate = useNavigate();
     const [btnstate, Setbtnstate] = useState(false);
+    const [Projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8082/projects/").then((response) => {
+            setProjects(response.data)
+        })
+    }, [])
+
 
     return (
         <div className='main'>
@@ -35,118 +44,26 @@ const Table = () => {
                         <td> 1 </td>
                         <td> 2 </td>
                         <td> Admin </td>
-                        <td> 26/06/22 </td>
+                        <td> 26-06-2022 </td>
                         <td><button> Edit </button> <button>X</button> </td>
                     </tr>
 
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
-                    <tr>
-                        <td> Oops </td>
-                        <td> 1 </td>
-                        <td> 2 </td>
-                        <td> Admin </td>
-                        <td> 26/06/22 </td>
-                        <td><button> Edit </button> <button>X</button> </td>
-                    </tr>
-
+                    {
+                        Projects.map((project) => {
+                            return (
+                                <>
+                                    <tr>
+                                        <td> {project.name} </td>
+                                        <td> {project.buglist.length} </td>
+                                        <td> {project.members.length} </td>
+                                        <td> {project.creator} </td>
+                                        <td> {project.timestamp.substring(0, 10)} </td>
+                                        <td><button> Edit </button> <button>X</button> </td>
+                                    </tr>
+                                </>
+                            )
+                        })
+                    }
 
                 </table>
             </div>

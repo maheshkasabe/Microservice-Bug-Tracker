@@ -18,8 +18,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class Bugs {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long bugid;
 
     private String name;
 

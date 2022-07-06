@@ -4,7 +4,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -20,7 +22,7 @@ public class Project {
     public static final String INDEX_NAME = "db_sequence";
 
     @Id
-    private String id;
+    private int id;
 
     private String name;
 
@@ -28,6 +30,9 @@ public class Project {
 
     private List<String> members;
 
-    private List<Integer> buglist;
+    private List<Long> buglist;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private Date timestamp = new Date();
 
 }

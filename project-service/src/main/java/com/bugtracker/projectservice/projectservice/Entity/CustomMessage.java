@@ -13,7 +13,7 @@ import java.util.List;
 public class CustomMessage {
 
     @Id
-    private int Id;
+    private Long bugid;
 
     private String name;
 

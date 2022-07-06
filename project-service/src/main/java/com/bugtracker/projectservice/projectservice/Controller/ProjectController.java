@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.bugtracker.projectservice.projectservice.Entity.Project.INDEX_NAME;
 
@@ -23,7 +27,7 @@ public class ProjectController {
 
     @PostMapping("/")
     public Project saveProject(@RequestBody Project project){
-        project.setId(INDEX_NAME);
+        project.setId(seq_service.getseq(INDEX_NAME));
         return projectRepo.save(project);
     }
 
@@ -56,11 +60,14 @@ public class ProjectController {
     @Autowired
     private RabbitTemplate template;
 
-    @PostMapping("/{id}/addbug")
+    @PostMapping("/addbug/{id}")
     public String publishMessage(@PathVariable("id") int id,@RequestBody CustomMessage message,Project project){
+        Long myid = UUID.randomUUID().getMostSignificantBits();
         Project newproject = projectRepo.findById(id).get();
-        newproject.setBuglist(project.getBuglist());
-        message.setId(message.getId());
+        message.setBugid(myid);
+        List<Long> mylist = Collections.singletonList(message.getBugid());
+        List<Long> editlist2 = Stream.concat(newproject.getBuglist().stream(),mylist.stream()).collect(Collectors.toList());
+        newproject.setBuglist(editlist2);
         message.setName(message.getName());
         message.setPriority(message.getPriority());
         message.setStatus(message.getStatus());
