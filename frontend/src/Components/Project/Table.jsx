@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Bugs from '../Bugs/Bugs';
 import Modal1 from '../Modal/Modal1';
 import "./table.css"
 
@@ -15,6 +16,20 @@ const Table = () => {
         })
     }, [])
 
+    const deleteproject = (id) => {
+        axios.delete(`http://localhost:8082/projects/${id}`, {
+            headers: {
+              Authorization: "token"
+            }}).then((response) => {
+                console.log(response);
+        })
+    }
+
+    const redirect = (id) => {
+        <Bugs id={id} />
+        navigate("/bug");
+    }
+
 
     return (
         <div className='main'>
@@ -24,7 +39,7 @@ const Table = () => {
 
             {
                 btnstate && (
-                    <Modal1 Setbtnstate={Setbtnstate} />
+                    <Modal1 Setbtnstate={Setbtnstate}/>
                 )
             }
 
@@ -40,7 +55,7 @@ const Table = () => {
                     </tr>
 
                     <tr>
-                        <td   > <a href='/bug'>Oops </a> </td>
+                        <td> <a href='/bug'>Oops </a> </td>
                         <td> 1 </td>
                         <td> 2 </td>
                         <td> Admin </td>
@@ -53,12 +68,20 @@ const Table = () => {
                             return (
                                 <>
                                     <tr>
-                                        <td> {project.name} </td>
-                                        <td> {project.buglist.length} </td>
-                                        <td> {project.members.length} </td>
+                                        <td onClick={() => {redirect(project.id)}}>{project.name} </td>
+                                        {
+                                            project.buglist && project.buglist.length? (
+                                                <td> {project.buglist.length}</td>
+                                            ): <td>0</td>
+                                        }
+                                        {
+                                            project.members && project.members.length? (
+                                                <td> {project.members.length}</td>
+                                            ): <td>0</td>
+                                        }
                                         <td> {project.creator} </td>
                                         <td> {project.timestamp.substring(0, 10)} </td>
-                                        <td><button> Edit </button> <button>X</button> </td>
+                                        <td><button> Edit </button> <button onClick={() => {deleteproject(project.id)}}>X</button> </td>
                                     </tr>
                                 </>
                             )

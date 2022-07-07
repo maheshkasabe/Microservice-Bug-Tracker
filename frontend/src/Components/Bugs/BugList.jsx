@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./bugs.css"
 import Modal from '../Modal/Modal';
+import axios from 'axios';
 
-const BugList = () => {
+const BugList = ({id}) => {
     const [state, Setstate] = useState(false);
 
     return (
         <div className='buglist'>
             {
                 state && (
-                    <Modal Setstate={Setstate} />
+                    <Modal Setstate={Setstate} id={id}/>
                 )
             }
             <div className='addbug'>

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./signin.css"
@@ -9,7 +10,15 @@ const Signin = () => {
     const [loginPass, setLoginPass] = useState("")
 
     const login = () => {
-       console.log("signin")
+        axios.get("http://localhost:8081/users/login/", {
+            username: loginEmail,
+            password: loginPass
+        }).then((response) =>{
+            console.log(response);
+            localStorage.setItem("username", response.config.username);
+            console.log(localStorage.getItem("username"))
+            navigate("/home")
+        })
     }
 
     return (

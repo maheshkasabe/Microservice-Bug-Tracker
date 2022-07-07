@@ -12,7 +12,7 @@ const Header = () => {
         </div>
 
         <div className='btns'>
-            <p>Admin</p>
+            <p>{localStorage.getItem("username")}</p>
             <button>Logout</button>
         </div>
     </div>

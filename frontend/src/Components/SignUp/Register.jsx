@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./signin.css"
@@ -10,8 +11,12 @@ const Register = ({ setState }) => {
     const [Password, setRegisterPassword] = useState("")
 
     const register = () => {
-        console.log("register")
-        setState(false);
+        axios.post("http://localhost:8081/users/register/", {
+            username: Email,
+            password: Password
+        }).then((response) =>{
+            console.log(response);
+        })
     }
 
     return (

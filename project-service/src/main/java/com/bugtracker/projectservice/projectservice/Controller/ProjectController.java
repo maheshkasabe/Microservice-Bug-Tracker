@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 
 import static com.bugtracker.projectservice.projectservice.Entity.Project.INDEX_NAME;
 
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController()
 @RequestMapping("/projects")
 public class ProjectController {
@@ -66,8 +67,13 @@ public class ProjectController {
         Project newproject = projectRepo.findById(id).get();
         message.setBugid(myid);
         List<Long> mylist = Collections.singletonList(message.getBugid());
-        List<Long> editlist2 = Stream.concat(newproject.getBuglist().stream(),mylist.stream()).collect(Collectors.toList());
-        newproject.setBuglist(editlist2);
+        if (newproject.getBuglist() == null){
+            List<Long> editlist2 = mylist;
+            newproject.setBuglist(editlist2);
+        }else{
+            List<Long> editlist2 = Stream.concat(newproject.getBuglist().stream(),mylist.stream()).collect(Collectors.toList());
+            newproject.setBuglist(editlist2);
+        }
         message.setName(message.getName());
         message.setPriority(message.getPriority());
         message.setStatus(message.getStatus());
