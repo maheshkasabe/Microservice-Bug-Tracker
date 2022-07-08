@@ -5,8 +5,8 @@ import Bugs from './Bugs'
 const Bug = () => {
   return (
     <div>
-        <Bugs id={10}/>
-        <BugList id={10} />
+        <Bugs id={1}/>
+        <BugList id={1} />
     </div>
   )
 }

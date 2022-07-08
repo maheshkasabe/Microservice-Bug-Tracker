@@ -19,7 +19,7 @@ import java.util.Date;
 public class Bugs {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
-    private Long bugid;
+    private String bugid;
 
     private String name;
 

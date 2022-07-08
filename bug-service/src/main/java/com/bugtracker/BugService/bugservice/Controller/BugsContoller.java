@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 @RequestMapping("/bugs")
 public class BugsContoller {
@@ -25,18 +25,18 @@ public class BugsContoller {
     }
 
     @GetMapping("/{id}")
-    public Bugs getbugbyid(@PathVariable("id") Long bugid){
+    public Bugs getbugbyid(@PathVariable("id") String bugid){
         return bugService.getbugbyid(bugid);
     }
 
     @DeleteMapping("/{id}")
-    public String deletebug(@PathVariable("id") Long bugid){
+    public String deletebug(@PathVariable("id") String bugid){
         bugService.deletebug(bugid);
         return "Bug deleted successfully";
     }
 
     @PutMapping("/{id}")
-    public Bugs updatebug(@PathVariable("id") Long bugid, @RequestBody Bugs bugs){
+    public Bugs updatebug(@PathVariable("id") String bugid, @RequestBody Bugs bugs){
         return bugService.updatebug(bugid,bugs);
     }
 }

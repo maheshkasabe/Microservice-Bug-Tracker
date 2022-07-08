@@ -30,7 +30,7 @@ public class Project {
 
     private List<String> members;
 
-    private List<Long> buglist;
+    private List<String> buglist;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date timestamp = new Date();

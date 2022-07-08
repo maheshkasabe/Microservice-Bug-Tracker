@@ -8,7 +8,7 @@ const Modal = ({ Setstate,id}) => {
   const[status, setStatus] = useState("OPEN")
 
   const postbug = () => {
-    axios.post("http://localhost:8082/projects/addbug/10",{
+    axios.post("http://localhost:8082/projects/addbug/1",{
               name: bugname,
               priority: priority,
               status: status

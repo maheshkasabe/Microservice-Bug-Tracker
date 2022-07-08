@@ -4,6 +4,7 @@ import com.bugtracker.projectservice.projectservice.Entity.CustomMessage;
 import com.bugtracker.projectservice.projectservice.Entity.Project;
 import com.bugtracker.projectservice.projectservice.MQConfig;
 import com.bugtracker.projectservice.projectservice.Repo.ProjectRepo;
+import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -58,20 +59,34 @@ public class ProjectController {
         return projectRepo.save(newproject);
     }
 
+    @PutMapping("/addmembers/{id}")
+    public Project addmembers(@PathVariable("id") int id, @RequestBody Project project){
+        Project newproject = projectRepo.findById(id).get();
+        if(newproject.getMembers() == null){
+            newproject.setMembers(project.getMembers());
+        }else{
+            List<String> memberslist = project.getMembers();
+            List<String> finallist = Stream.concat(newproject.getMembers().stream(),memberslist.stream()).collect(Collectors.toList());
+            newproject.setMembers(finallist);
+        }
+
+        return projectRepo.save(newproject);
+    }
+
     @Autowired
     private RabbitTemplate template;
 
     @PostMapping("/addbug/{id}")
     public String publishMessage(@PathVariable("id") int id,@RequestBody CustomMessage message,Project project){
-        Long myid = UUID.randomUUID().getMostSignificantBits();
+        String myid = UUID.randomUUID().toString().replace("-","").substring(0,8);
         Project newproject = projectRepo.findById(id).get();
         message.setBugid(myid);
-        List<Long> mylist = Collections.singletonList(message.getBugid());
+        List<String> mylist = Collections.singletonList(message.getBugid());
         if (newproject.getBuglist() == null){
-            List<Long> editlist2 = mylist;
+            List<String> editlist2 = mylist;
             newproject.setBuglist(editlist2);
         }else{
-            List<Long> editlist2 = Stream.concat(newproject.getBuglist().stream(),mylist.stream()).collect(Collectors.toList());
+            List<String> editlist2 = Stream.concat(newproject.getBuglist().stream(),mylist.stream()).collect(Collectors.toList());
             newproject.setBuglist(editlist2);
         }
         message.setName(message.getName());
