@@ -1,5 +1,4 @@
 import './App.css';
-import BugList from './Components/Bugs/BugList';
 import Bug from './Components/Bugs/Bug';
 import Header from './Components/Project/Header';
 import Table from './Components/Project/Table';

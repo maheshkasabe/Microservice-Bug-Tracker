@@ -1,8 +1,16 @@
 import React from 'react'
 import "./header.css"
 import logo from "../../logo512.png"
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+  const navigate = useNavigate();
+
+  const logout= () => {
+    localStorage.setItem("username", "")
+    navigate("/login")
+  }
   return (
     <div className='header'>
         
@@ -13,7 +21,7 @@ const Header = () => {
 
         <div className='btns'>
             <p>{localStorage.getItem("username")}</p>
-            <button>Logout</button>
+            <button onClick={logout}>Logout</button>
         </div>
     </div>
   )

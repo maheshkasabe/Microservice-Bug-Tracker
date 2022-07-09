@@ -2,14 +2,16 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import "./bugs.css"
 
-const Bugs = ({ id }) => {
+const Bugs = ({id}) => {
   const [project, setProject] = useState([]);
   const [members, setMembers] = useState(["john"]);
+  const [mem_list, setMemlist] = useState([]);
+  const [show, setshow] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:8082/projects/${id}`).then((response) => {
       setProject(response.data)
-      console.log(response.data)
+      setMemlist(response.data.members);
 
     })
   }, [])
@@ -32,6 +34,9 @@ const Bugs = ({ id }) => {
     })
   }
 
+  const members_list = project.members;
+  console.log(members_list)
+
   return (
     <div className='bugs'>
       <div className='info'>
@@ -41,14 +46,26 @@ const Bugs = ({ id }) => {
 
         <div className='info-btn'>
 
-          <button> ^ View Members</button>
-          <button onClick={() => {addmembers(project.id)}}>+ Add Members </button>
+          <button onClick={() => {setshow(!show)}}> ^ View Members</button>
+          <button onClick={() => { addmembers(project.id) }}>+ Add Members </button>
           <button onClick={() => { deleteproject(project.id) }}>X Delete Project </button>
         </div>
 
-        <div>
-            Members : {project.members}
+        {
+          show && 
+          <div className='memlist'>
+          Members :
+          {
+            mem_list.map((mem) => {
+              return (
+                <div className='mem_name'>
+                  <p> {mem} </p>
+                </div>
+              )
+            })
+          }
         </div>
+        }
 
       </div>
 

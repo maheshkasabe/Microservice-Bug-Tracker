@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Bugs from '../Bugs/Bugs';
+import App from '../../App';
 import Modal1 from '../Modal/Modal1';
 import "./table.css"
 
@@ -25,9 +25,8 @@ const Table = () => {
         })
     }
 
-    const redirect = (id) => {
-        <Bugs id={id} />
-        navigate("/bug");
+    const redirect = () => {
+        navigate("/bug/");
     }
 
 
