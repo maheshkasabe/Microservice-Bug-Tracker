@@ -3,28 +3,8 @@ import "./bugs.css"
 import Modal from '../Modal/Modal';
 import axios from 'axios';
 
-const BugList = ({ id }) => {
+const BugList = ({ id,bugs,buginfo }) => {
     const [state, Setstate] = useState(false)
-    const [bugs, setBugs] = useState([])
-    const [buginfo, setbuginfo] = useState([])
-
-    useEffect(() => {
-        axios.get(`http://localhost:8082/projects/${id}`).then((response) => {
-            setBugs(response.data.buglist)
-            console.log(response.data.buglist)
-        })
-
-    }, [id])
-
-
-    useEffect(() => {
-        [bugs].map((bugid) => {
-            return axios.get(`http://localhost:8083/bugs/${bugid}`).then((response) => {
-                setbuginfo(response.data)
-                console.log(response.data)
-            })
-        })
-    }, [])
 
     const deletebug = (id) => {
         axios.delete(`http://localhost:8083/bugs/${id}`).then((response) => {

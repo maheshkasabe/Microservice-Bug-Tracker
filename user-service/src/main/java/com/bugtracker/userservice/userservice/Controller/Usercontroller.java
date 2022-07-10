@@ -5,6 +5,8 @@ import com.bugtracker.userservice.userservice.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class Usercontroller {
@@ -21,5 +23,10 @@ public class Usercontroller {
     @GetMapping("/login")
     public String login(){
         return "user logged in...";
+    }
+
+    @GetMapping("/list")
+    public List<User> list(){
+       return userService.getlist();
     }
 }

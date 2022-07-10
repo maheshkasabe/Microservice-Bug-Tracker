@@ -1,0 +1,39 @@
+.userlist{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 70%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    border: 1px solid gray;
+    background-color: #424242;
+    padding: 10px;
+}
+
+.items p{
+    font-size: larger;
+    float: none;
+}
+
+.items button{
+    float: none;
+    border: 1px solid aqua;
+    height: 35px;
+    width: 50px;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    background-color: aquamarine;
+    border-radius: 5px;
+    cursor: pointer;
+}
