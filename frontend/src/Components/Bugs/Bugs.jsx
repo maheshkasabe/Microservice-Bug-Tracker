@@ -3,19 +3,9 @@ import React, { useState, useEffect } from 'react'
 import AddMembers from '../Modal/AddMembers';
 import "./bugs.css"
 
-const Bugs = ({id}) => {
-  const [project, setProject] = useState([]);
-  const [mem_list, setMemlist] = useState([]);
+const Bugs = ({id,project,mem_list}) => {
   const [show, setshow] = useState(false);
   const [state, Setstate] = useState(false)
-
-  useEffect(() => {
-    axios.get(`http://localhost:8082/projects/${id}`).then((response) => {
-      setProject(response.data)
-      setMemlist(response.data.members);
-
-    })
-  }, [])
 
   const deleteproject = (id) => {
     axios.delete(`http://localhost:8082/projects/${id}`, {
@@ -28,7 +18,6 @@ const Bugs = ({id}) => {
   }
 
   const members_list = project.members;
-  console.log(members_list)
 
   return (
     <div className='bugs'>

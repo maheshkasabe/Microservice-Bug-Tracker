@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import App from '../../App';
 import Modal1 from '../Modal/Modal1';
 import "./table.css"
 
@@ -9,6 +8,7 @@ const Table = () => {
     const navigate = useNavigate();
     const [btnstate, Setbtnstate] = useState(false);
     const [Projects, setProjects] = useState([]);
+
 
     useEffect(() => {
         axios.get("http://localhost:8082/projects/").then((response) => {
@@ -19,14 +19,15 @@ const Table = () => {
     const deleteproject = (id) => {
         axios.delete(`http://localhost:8082/projects/${id}`, {
             headers: {
-              Authorization: "token"
-            }}).then((response) => {
-                console.log(response);
+                Authorization: "token"
+            }
+        }).then((response) => {
+            console.log(response);
         })
     }
 
-    const redirect = () => {
-        navigate("/bug/");
+    const redirect = (id) => {
+        navigate("/bug");
     }
 
 
@@ -38,7 +39,7 @@ const Table = () => {
 
             {
                 btnstate && (
-                    <Modal1 Setbtnstate={Setbtnstate}/>
+                    <Modal1 Setbtnstate={Setbtnstate} />
                 )
             }
 
@@ -67,20 +68,20 @@ const Table = () => {
                             return (
                                 <>
                                     <tr>
-                                        <td onClick={() => {redirect(project.id)}}>{project.name} </td>
+                                        <td onClick={() =>  redirect(project.id) }>{project.name} </td>
                                         {
-                                            project.buglist && project.buglist.length? (
+                                            project.buglist && project.buglist.length ? (
                                                 <td> {project.buglist.length}</td>
-                                            ): <td>0</td>
+                                            ) : <td>0</td>
                                         }
                                         {
-                                            project.members && project.members.length? (
+                                            project.members && project.members.length ? (
                                                 <td> {project.members.length}</td>
-                                            ): <td>0</td>
+                                            ) : <td>0</td>
                                         }
                                         <td> {project.creator} </td>
                                         <td> {project.timestamp.substring(0, 10)} </td>
-                                        <td><button> Edit </button> <button onClick={() => {deleteproject(project.id)}}>X</button> </td>
+                                        <td><button> Edit </button> <button onClick={() => { deleteproject(project.id) }}>X</button> </td>
                                     </tr>
                                 </>
                             )

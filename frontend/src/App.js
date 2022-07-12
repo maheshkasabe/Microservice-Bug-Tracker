@@ -3,11 +3,11 @@ import Bug from './Components/Bugs/Bug';
 import Header from './Components/Project/Header';
 import Table from './Components/Project/Table';
 import { BrowserRouter as Router , Route, Routes  } from "react-router-dom"
-import Modal from './Components/Modal/Modal';
 import Signup from './Components/SignUp/Signup';
 import Signin from './Components/SignUp/Signin';
 
 function App() {
+
   return (
     <div className="App">
       <Router>

@@ -4,6 +4,7 @@ import com.bugtracker.projectservice.projectservice.Entity.CustomMessage;
 import com.bugtracker.projectservice.projectservice.Entity.Project;
 import com.bugtracker.projectservice.projectservice.MQConfig;
 import com.bugtracker.projectservice.projectservice.Repo.ProjectRepo;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -73,10 +74,12 @@ public class ProjectController {
         return projectRepo.save(newproject);
     }
 
+    private static final String PROJECT_SERVICE = "project_service";
     @Autowired
     private RabbitTemplate template;
 
     @PostMapping("/addbug/{id}")
+    @CircuitBreaker(name = PROJECT_SERVICE,fallbackMethod = "fallback")
     public String publishMessage(@PathVariable("id") int id,@RequestBody CustomMessage message,Project project){
         String myid = UUID.randomUUID().toString().replace("-","").substring(0,8);
         Project newproject = projectRepo.findById(id).get();
@@ -95,5 +98,9 @@ public class ProjectController {
         template.convertAndSend(MQConfig.EXCHANGE,MQConfig.ROUTING_KEY,message);
         projectRepo.save(newproject);
         return "Done..";
+    }
+
+    public String fallback(Exception e){
+        return "Bug Service is down";
     }
 }
