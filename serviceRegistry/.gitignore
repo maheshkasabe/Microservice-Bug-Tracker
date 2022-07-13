@@ -1,6 +1,9 @@
 HELP.md
+<<<<<<< HEAD
 target/*
 !target/*.jar
+=======
+>>>>>>> parent of ff01e9b... deploy
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
