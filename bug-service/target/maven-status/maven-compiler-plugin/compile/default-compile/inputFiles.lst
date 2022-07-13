@@ -1,0 +1,7 @@
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/MQConfig.java
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/Listner.java
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/Controller/BugsContoller.java
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/Service/BugService.java
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/Entity/Bugs.java
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/BugServiceApplication.java
+/home/mahi/Code/Bug-Tracker/bug-service/src/main/java/com/bugtracker/BugService/bugservice/Repository/Repo.java

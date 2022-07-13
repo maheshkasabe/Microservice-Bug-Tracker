@@ -1,0 +1,8 @@
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/Repo/ProjectRepo.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/MQConfig.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/Entity/CustomMessage.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/Controller/ProjectController.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/Entity/Sequence.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/Service/seq_service.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/ProjectServiceApplication.java
+/home/mahi/Code/Bug-Tracker/project-service/src/main/java/com/bugtracker/projectservice/projectservice/Entity/Project.java
