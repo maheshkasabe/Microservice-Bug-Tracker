@@ -37,46 +37,46 @@ jobs:
     - name: create bug-service image
       run: | 
         cd bug-service
-        docker build -t bug-service:${{ steps.get-version.outputs.VERSION }} .    
+        docker build -t bug-service .    
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/bug-service:${{ steps.get-version.outputs.VERSION }}
+        docker tag bug-service maheshkasbe/bug-service:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/bug-service:${{ steps.get-version.outputs.VERSION }}
 
     - name: create project-service image
       run: | 
         cd project-service
-        docker build -t project-service:${{ steps.get-version.outputs.VERSION }} . 
+        docker build -t project-service . 
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/project-service:${{ steps.get-version.outputs.VERSION }}
+        docker tag project-service maheshkasbe/project-service:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/project-service:${{ steps.get-version.outputs.VERSION }}
 
     - name: create user-service image
       run: | 
         cd user-service
-        docker build -t user-service:${{ steps.get-version.outputs.VERSION }} . 
+        docker build -t user-service . 
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/user-service:${{ steps.get-version.outputs.VERSION }}
+        docker tag user-service maheshkasbe/user-service:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/user-service:${{ steps.get-version.outputs.VERSION }}
 
     - name: create apiGateway image
       run: | 
         cd apiGateway
-        docker build -t apiGateway:${{ steps.get-version.outputs.VERSION }} . 
+        docker build -t apiGateway . 
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/apiGateway:${{ steps.get-version.outputs.VERSION }}
+        docker tag apiGateway maheshkasbe/apiGateway:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/apiGateway:${{ steps.get-version.outputs.VERSION }}
 
     - name: create serviceRegistry image
       run: | 
         cd serviceRegistry
-        docker build -t serviceRegistry:${{ steps.get-version.outputs.VERSION }} . 
+        docker build -t serviceRegistry . 
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/serviceRegistry:${{ steps.get-version.outputs.VERSION }}
+        docker tag serviceRegistry maheshkasbe/serviceRegistry:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/serviceRegistry:${{ steps.get-version.outputs.VERSION }}
 
     - name: install yq 
