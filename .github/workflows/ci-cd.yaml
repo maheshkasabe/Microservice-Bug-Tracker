@@ -27,11 +27,11 @@ jobs:
     - name: create frontend image 
       run: |
         cd frontend
-        docker build -t frontend:${{ steps.get-version.outputs.VERSION }} . 
+        docker build -t frontend . 
 
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/frontend:${{ steps.get-version.outputs.VERSION }}
+        docker tag frontend maheshkasbe/frontend:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/frontend:${{ steps.get-version.outputs.VERSION }}
 
     - name: create bug-service image
