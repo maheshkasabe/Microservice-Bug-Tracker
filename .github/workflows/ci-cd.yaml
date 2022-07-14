@@ -93,11 +93,11 @@ jobs:
         yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/serviceregistry:${{ steps.get-version.outputs.VERSION }}"' service-registry.yaml
     
     - name: Commit and push changes
-      uses: dmnemec/copy_file_to_another_repo_action@main
+      uses:  datalbry/copy_folder_to_another_repo_action@1.0.0
       env:
         API_TOKEN_GITHUB: ${{ secrets.PAT }}
       with: 
-        source_file: k8s/*.yaml
+        source_folder: k8s
         destination_repo: Mahesh-Kasabe/Microservice-Devops-Project
         destination_branch: master
         destination_folder: k8s
