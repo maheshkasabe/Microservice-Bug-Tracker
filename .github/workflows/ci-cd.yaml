@@ -64,20 +64,20 @@ jobs:
     - name: create apiGateway image
       run: | 
         cd apiGateway
-        docker build -t apiGateway . 
+        docker build -t apigateway . 
     - name: push image 
       run: |
-        docker tag apiGateway maheshkasbe/apiGateway:${{ steps.get-version.outputs.VERSION }}
-        docker push maheshkasbe/apiGateway:${{ steps.get-version.outputs.VERSION }}
+        docker tag apigateway maheshkasbe/apigateway:${{ steps.get-version.outputs.VERSION }}
+        docker push maheshkasbe/apigateway:${{ steps.get-version.outputs.VERSION }}
 
     - name: create serviceRegistry image
       run: | 
         cd serviceRegistry
-        docker build -t serviceRegistry . 
+        docker build -t serviceregistry . 
     - name: push image 
       run: |
-        docker tag serviceRegistry maheshkasbe/serviceRegistry:${{ steps.get-version.outputs.VERSION }}
-        docker push maheshkasbe/serviceRegistry:${{ steps.get-version.outputs.VERSION }}
+        docker tag serviceregistry maheshkasbe/serviceregistry:${{ steps.get-version.outputs.VERSION }}
+        docker push maheshkasbe/serviceregistry:${{ steps.get-version.outputs.VERSION }}
 
     - name: install yq 
       uses: mikefarah/yq@v4.15.1
@@ -89,8 +89,8 @@ jobs:
         yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/bug-service:${{ steps.get-version.outputs.VERSION }}"' bug-service.yaml
         yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/project-service:${{ steps.get-version.outputs.VERSION }}"' project-service.yaml
         yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/user-service:${{ steps.get-version.outputs.VERSION }}"' user-service.yaml
-        yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/ api-gateway:${{ steps.get-version.outputs.VERSION }}"' api-gateway.yaml
-        yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/ service-registry:${{ steps.get-version.outputs.VERSION }}"' service-registry.yaml
+        yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/apigateway:${{ steps.get-version.outputs.VERSION }}"' api-gateway.yaml
+        yq e -i '.spec.template.spec.containers[0].image="maheshkasbe/serviceregistry:${{ steps.get-version.outputs.VERSION }}"' service-registry.yaml
     
     - name: Commit and push changes
       uses: dmnemec/copy_file_to_another_repo_action@main

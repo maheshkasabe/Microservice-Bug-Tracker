@@ -16,7 +16,7 @@ spec:
         app: api-gatway
     spec:
       containers:
-        - image: maheshkasbe/apiGateway:latest
+        - image: maheshkasbe/apigateway:latest
           imagePullPolicy: Always
           name: api-gatway
           ports:

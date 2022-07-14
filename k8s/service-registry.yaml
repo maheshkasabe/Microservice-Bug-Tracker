@@ -16,7 +16,7 @@ spec:
         app: service-registry
     spec:
       containers:
-        - image: maheshkasbe/serviceRegistry:latest
+        - image: maheshkasbe/serviceregistry:latest
           imagePullPolicy: Always
           name: service-registry
           ports:
