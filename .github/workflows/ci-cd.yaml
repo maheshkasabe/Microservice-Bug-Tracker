@@ -104,3 +104,4 @@ jobs:
         user_email: maheshkasbe010@gmail.com
         user_name: Mahesh-Kasabe
         commit_message: update image version ${{ steps.get_version.outputs.VERSION }} in yml file
+        
