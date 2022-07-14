@@ -97,7 +97,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.PAT }}
       with: 
-        source_file: k8s/deployment.yaml
+        source_folder: k8s
         destination_repo: Mahesh-Kasabe/devops-project
         destination_branch: master
         destination_folder: k8s
