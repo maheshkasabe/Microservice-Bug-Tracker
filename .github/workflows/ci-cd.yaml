@@ -31,7 +31,7 @@ jobs:
 
     - name: push image 
       run: |
-        docker tag ${{ steps.get-version.outputs.VERSION }} maheshkasbe/frontend:${{ steps.get-version.outputs.VERSION }}
+        docker tag frontend maheshkasbe/frontend:${{ steps.get-version.outputs.VERSION }}
         docker push maheshkasbe/frontend:${{ steps.get-version.outputs.VERSION }}
 
     - name: create bug-service image
@@ -104,4 +104,3 @@ jobs:
         user_email: maheshkasbe010@gmail.com
         user_name: Mahesh-Kasabe
         commit_message: update image version ${{ steps.get_version.outputs.VERSION }} in yml file
-        
