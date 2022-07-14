@@ -97,8 +97,8 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.PAT }}
       with: 
-        source_file: k8s/*
-        destination_repo: Mahesh-Kasabe/devops-project
+        source_file: k8s/*.yaml
+        destination_repo: Mahesh-Kasabe/Microservice-Devops-Project
         destination_branch: master
         destination_folder: k8s
         user_email: maheshkasbe010@gmail.com
