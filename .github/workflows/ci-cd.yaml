@@ -27,7 +27,7 @@ jobs:
     - name: create frontend image 
       run: |
         cd frontend
-        docker build -t frontend:${{ steps.get-version.outputs.VERSION }} . 
+        docker build -t frontend . 
 
     - name: push image 
       run: |
