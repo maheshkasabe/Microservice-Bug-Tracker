@@ -11,7 +11,7 @@ const Register = ({ setState }) => {
     const [Password, setRegisterPassword] = useState("")
 
     const register = () => {
-        axios.post("http://localhost:8081/users/register/", {
+        axios.post("http://localhost:9191/users/register/", {
             username: Email,
             password: Password
         }).then((response) =>{
@@ -22,7 +22,7 @@ const Register = ({ setState }) => {
     return (
         <div className='signin'>
             <div className='main-div'>
-                <h3>Sign in to Bug Tracker </h3>
+                <h3>Register with Bug Tracker </h3>
             </div>
 
 

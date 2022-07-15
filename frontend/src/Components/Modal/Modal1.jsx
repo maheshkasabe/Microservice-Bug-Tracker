@@ -7,7 +7,7 @@ const Modal1 = ({Setbtnstate }) => {
     const user =  localStorage.getItem("username");
 
     const newproject= () => {
-        axios.post("http://localhost:8082/projects/", {
+        axios.post("http://localhost:9191/projects/", {
             name: projectname,
             creator : user
         })

@@ -5,7 +5,6 @@ import com.bugtracker.projectservice.projectservice.Entity.Project;
 import com.bugtracker.projectservice.projectservice.MQConfig;
 import com.bugtracker.projectservice.projectservice.Repo.ProjectRepo;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import org.apache.commons.lang.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

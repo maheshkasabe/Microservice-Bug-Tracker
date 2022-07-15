@@ -5,8 +5,10 @@ import Table from './Components/Project/Table';
 import { BrowserRouter as Router , Route, Routes  } from "react-router-dom"
 import Signup from './Components/SignUp/Signup';
 import Signin from './Components/SignUp/Signin';
+import { useState } from 'react';
 
 function App() {
+  const [ID, setID] = useState(0);
 
   return (
     <div className="App">
@@ -15,8 +17,8 @@ function App() {
 
           <Route path='/' element={<> <Signup /> </>} />
           <Route path='/login' element={<> <Signin /> </>} />
-          <Route path='/home' element={<> <Header/> <Table />  </> } />
-          <Route path='/bug' element={<> <Header/> <Bug /> </> } />
+          <Route path='/home' element={<> <Header/> <Table setID={setID} />  </> } />
+          <Route path='/bug' element={<> <Header/> <Bug id={ID} /> </> } />
 
         </Routes>
       </Router>

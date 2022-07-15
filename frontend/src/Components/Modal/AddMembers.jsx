@@ -7,13 +7,13 @@ const AddMembers = ({Setstate,id}) => {
     const [members, setMembers] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8081/users/list").then((response) => {
+        axios.get("http://localhost:9191/users/list").then((response) => {
             setList(response.data);
         })
     }, [])
 
     const addmembers = () => {
-        axios.put(`http://localhost:8082/projects/addmembers/${id}`, {
+        axios.put(`http://localhost:9191/projects/addmembers/${id}`, {
           members: members
         }).then((response) => {
           console.log(response);

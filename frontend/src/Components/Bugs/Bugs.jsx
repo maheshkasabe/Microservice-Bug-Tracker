@@ -8,7 +8,7 @@ const Bugs = ({id,project,mem_list}) => {
   const [state, Setstate] = useState(false)
 
   const deleteproject = (id) => {
-    axios.delete(`http://localhost:8082/projects/${id}`, {
+    axios.delete(`http://localhost:9191/projects/${id}`, {
       headers: {
         Authorization: "token"
       }
@@ -45,7 +45,7 @@ const Bugs = ({id,project,mem_list}) => {
           <div className='memlist'>
           Members :
           {
-            mem_list.map((mem) => {
+           mem_list && mem_list.map((mem) => {
               return (
                 <div className='mem_name'>
                   <p> {mem} </p>

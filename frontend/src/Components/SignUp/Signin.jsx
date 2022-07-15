@@ -10,7 +10,7 @@ const Signin = () => {
     const [loginPass, setLoginPass] = useState("")
 
     const login = () => {
-        axios.get("http://localhost:8081/users/login/", {
+        axios.get("http://localhost:9191/users/login/", {
             username: loginEmail,
             password: loginPass
         }).then((response) =>{
@@ -24,7 +24,7 @@ const Signin = () => {
     return (
         <div className='signin'>
             <div className='main-div'>
-                <h3>Sign in to Coinbase </h3>
+                <h3>Sign in to Bug Tracker </h3>
             </div>
 
             <div className='form-div'>

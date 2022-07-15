@@ -3,11 +3,11 @@ import "./bugs.css"
 import Modal from '../Modal/Modal';
 import axios from 'axios';
 
-const BugList = ({ id,bugs,buginfo }) => {
+const BugList = ({ id,buginfo }) => {
     const [state, Setstate] = useState(false)
 
     const deletebug = (id) => {
-        axios.delete(`http://localhost:8083/bugs/${id}`).then((response) => {
+        axios.delete(`http://localhost:9191/bugs/${id}`).then((response) => {
             console.log(response)
         })
     }

@@ -71,6 +71,7 @@
     background-color: red;
     width: 75px;
 }
+
 .modal-bug .project{
     display: flex;
     flex-direction: row;
