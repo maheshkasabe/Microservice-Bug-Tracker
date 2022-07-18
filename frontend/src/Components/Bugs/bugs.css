@@ -111,12 +111,13 @@ td{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 300px;
+    width: 350px;
+    float: left;
 }
 
 .bugs .memlist .mem_name p{
     border: 1px solid aqua;
-    height: 28px;
+    height: 25px;
     justify-content: center;
     text-align: center;
     color: black;

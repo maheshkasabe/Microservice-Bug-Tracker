@@ -5,6 +5,7 @@ import com.bugtracker.projectservice.projectservice.Entity.Project;
 import com.bugtracker.projectservice.projectservice.MQConfig;
 import com.bugtracker.projectservice.projectservice.Repo.ProjectRepo;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -18,6 +19,7 @@ import java.util.stream.Stream;
 import static com.bugtracker.projectservice.projectservice.Entity.Project.INDEX_NAME;
 
 @CrossOrigin(origins = {"http://localhost:3000"})
+@Slf4j
 @RestController()
 @RequestMapping("/projects")
 public class ProjectController {
@@ -30,22 +32,26 @@ public class ProjectController {
     @PostMapping("/")
     public Project saveProject(@RequestBody Project project){
         project.setId(seq_service.getseq(INDEX_NAME));
+        log.info("Inside saveProject() method of ProjectContoller");
         return projectRepo.save(project);
     }
 
     @GetMapping("/")
     public List<Project> getprojects(){
+        log.info("Inside getprojects() method of ProjectContoller");
         return projectRepo.findAll();
     }
 
     @GetMapping("/{id}")
     public Project getproject(@PathVariable("id") int id){
+        log.info("Inside getproject() method of ProjectContoller");
         return projectRepo.findById(id).get();
     }
 
     @DeleteMapping("/{id}")
     public String deleteproject(@PathVariable("id") int id){
         projectRepo.deleteById(id);
+        log.info("Inside deleteproject() method of ProjectContoller");
         return "Project Deleted";
     }
 
@@ -56,6 +62,7 @@ public class ProjectController {
         newproject.setCreator(project.getCreator());
         newproject.setMembers(project.getMembers());
         newproject.setBuglist(project.getBuglist());
+        log.info("Inside updateproject() method of ProjectContoller");
         return projectRepo.save(newproject);
     }
 
@@ -69,7 +76,7 @@ public class ProjectController {
             List<String> finallist = Stream.concat(newproject.getMembers().stream(),memberslist.stream()).collect(Collectors.toList());
             newproject.setMembers(finallist);
         }
-
+        log.info("Inside addmembers() method of ProjectContoller");
         return projectRepo.save(newproject);
     }
 
@@ -96,10 +103,12 @@ public class ProjectController {
         message.setStatus(message.getStatus());
         template.convertAndSend(MQConfig.EXCHANGE,MQConfig.ROUTING_KEY,message);
         projectRepo.save(newproject);
+        log.info("Inside publishmessage() method of ProjectContoller");
         return "Done..";
     }
 
     public String fallback(Exception e){
+        log.info("Inside fallback() method of ProjectContoller");
         return "Bug Service is down";
     }
 }

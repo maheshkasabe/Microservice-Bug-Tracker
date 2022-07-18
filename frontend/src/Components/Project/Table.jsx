@@ -28,7 +28,7 @@ const Table = ({setID}) => {
 
     const redirect = (id) => {
         setID(id);
-        navigate("/bug");
+        navigate(`/bug/${id}`);
     }
 
 

@@ -23,8 +23,8 @@ const Bugs = ({id,project,mem_list}) => {
     <div className='bugs'>
       <div className='info'>
         <h1>{project.name}</h1>
-        <p>Admin: {project.creator}</p>
-        <p>Created At: {project.timestamp} </p>
+        <p>Admin  :  {project.creator}</p>
+        <p>Created At  :  {project.timestamp} </p>
 
         <div className='info-btn'>
 

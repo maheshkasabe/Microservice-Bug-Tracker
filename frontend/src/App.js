@@ -8,7 +8,7 @@ import Signin from './Components/SignUp/Signin';
 import { useState } from 'react';
 
 function App() {
-  const [ID, setID] = useState(0);
+  const [ID, setID] = useState();
 
   return (
     <div className="App">
@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={<> <Signup /> </>} />
           <Route path='/login' element={<> <Signin /> </>} />
           <Route path='/home' element={<> <Header/> <Table setID={setID} />  </> } />
-          <Route path='/bug' element={<> <Header/> <Bug id={ID} /> </> } />
+          <Route path={`/bug/${ID}`} element={<> <Header/> <Bug id={ID} /> </> } />
 
         </Routes>
       </Router>

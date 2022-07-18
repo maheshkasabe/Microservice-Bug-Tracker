@@ -21,7 +21,6 @@ const Modal1 = ({Setbtnstate }) => {
                 </div>
                 
                 <input type="text" placeholder='Project Name' onChange={(e) => {setProjectname(e.target.value)}}/>
-                <input type="text" placeholder='Select Members' />
                 <button onClick={newproject}>CREATE A NEW PROJECT</button>
             </div>
         </div>
