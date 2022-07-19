@@ -12,11 +12,11 @@ Below are the Screen-Shots of Application Components
 
 ### Frontend 
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/SignIn.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/SignIn.png?raw=true)
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/Project.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/Project.png?raw=true)
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/Bug.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/Bug.png?raw=true)
 
 ### Api-Gateway (Spring Cloud Gateway)
 
@@ -54,22 +54,22 @@ spring:
 
 ### Service Registry (Netflix Eureka Client)
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/ServiceRegistry.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/ServiceRegistry.png?raw=true)
 
 
 ### MessageQ (Async Communication between BugService and ProjectService)
 
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/MQ1.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/MQ1.png?raw=true)
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/MQ2.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/MQ2.png?raw=true)
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/MQ3.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/MQ3.png?raw=true)
 
 
 ### Logging 
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/Images/Log.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/Log.png?raw=true)
 
 ### Technology
 
