@@ -12,7 +12,7 @@ Below are the Screen-Shots of Application Components
 
 ### Architecture of the Application .
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/Diagram.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/Diagram.png)
 
 
 ### Frontend 
