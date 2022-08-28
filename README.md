@@ -8,6 +8,10 @@ The above Microservice Architecture is a Bug Tracker Application which includes 
 2. Assigning People to the Project
 3. Adding / Defineinng Bug 
 
+### Diagram 
+
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/diagram.png?raw=true)
+
 Below are the Screen-Shots of Application Components 
 
 
