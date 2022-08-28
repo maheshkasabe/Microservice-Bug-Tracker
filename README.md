@@ -10,7 +10,7 @@ The above Microservice Architecture is a Bug Tracker Application which includes 
 
 ### Diagram 
 
-![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/diagram.png?raw=true)
+![alt tag](https://github.com/Mahesh-Kasabe/Microservice-Devops-Project/blob/master/Images/diagram.png)
 
 Below are the Screen-Shots of Application Components 
 
